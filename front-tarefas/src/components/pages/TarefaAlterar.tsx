@@ -1,21 +1,21 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { Tarefa } from "../../models/Tarefa";
 import { Categoria } from "../../models/Categoria";
-import { useParams } from "react-router-dom";
 
 function TarefaAlterar() {
-  const { TarefaId } = useParams();
+  const { tarefaId } = useParams();
   const [categorias, setCategorias] = useState<Categoria[]>([]);
   const [titulo, setTitulo] = useState("");
   const [descricao, setDescricao] = useState("");
-  const [categoriaId, setCategoriaId] = useState(0);
+  const [categoriaId, setCategoriaId] = useState("");
 
   useEffect(() => {
-    if (TarefaId) {
+    if (tarefaId) {
       axios
         .get<Tarefa>(
-          `http://localhost:5000/api/tarefas/buscar/{TarefaId}`
+          `http://localhost:5000/api/tarefas/buscar/${tarefaId}`
         )
         .then((resposta) => {
           setTitulo(resposta.data.titulo);
@@ -37,13 +37,13 @@ function TarefaAlterar() {
     e.preventDefault();
 
     const tarefa: Tarefa = {
-        titulo: titulo,
-        descricao: descricao,
-        categoriaId: categoriaId,
+      titulo: titulo,
+      descricao: descricao,
+      categoriaId: categoriaId,
     };
 
     axios
-      .put(`http://localhost:5000/api/tarefas/alterar/${TarefaId}`, tarefa)
+      .put(`http://localhost:5000/api/tarefas/alterar/${tarefaId}`, tarefa)
       .then((resposta) => {
         console.log(resposta.data);
       });
@@ -54,11 +54,11 @@ function TarefaAlterar() {
       <h1>Alterar Tarefa</h1>
       <form onSubmit={enviarTarefa}>
         <div>
-          <label htmlFor="titulo">Titulo</label>
+          <label htmlFor="Titulo">Titulo</label>
           <input
             type="text"
-            id="titulo"
-            name="titulo"
+            id="Titulo"
+            name="Titulo"
             value={titulo}
             required
             onChange={(e: any) => setTitulo(e.target.value)}
@@ -77,14 +77,14 @@ function TarefaAlterar() {
         </div>
 
         <div>
-          <label htmlFor="quantidade">Categorias</label>
+          <label htmlFor="categoria">Categorias</label>
           <select
             onChange={(e: any) => setCategoriaId(e.target.value)}
           >
             {categorias.map((categoria) => (
               <option
-                value={categoria.CategoriaId}
-                key={categoria.CategoriaId}
+                value={categoria.categoriaId}
+                key={categoria.categoriaId}
               >
                 {categoria.nome}
               </option>

@@ -1,5 +1,5 @@
 export interface Categoria {
-    CategoriaId?: string;
+    categoriaId?: string;
     nome: string;
     criadoEm?: string;
 }

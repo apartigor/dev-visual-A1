@@ -8,7 +8,7 @@ function TarefaCadastro() {
     const [categorias, setCategorias] = useState<Categoria[]>([]);
     const [titulo, setTitulo] = useState("");
     const [descricao, setDescricao] = useState("");
-    const [categoriaId, setCategoriaId] = useState(0);
+    const [categoriaId, setCategoriaId] = useState("");
 
     useEffect(() => {
         axios
@@ -73,9 +73,9 @@ function TarefaCadastro() {
                         onChange={(e: any) => setCategoriaId(e.target.value)}
                     >
                         {categorias.map((categoria) => (
-                            <option
-                                value={categoria.CategoriaId}
-                                key={categoria.CategoriaId}
+                            <option     
+                                value={categoria.categoriaId}
+                                key={categoria.categoriaId}
                             >
                                 {categoria.nome}
                             </option>

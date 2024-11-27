@@ -6,18 +6,18 @@ POST http://localhost:5000/api/tarefas/cadastrar
 Content-Type: application/json
 
 {
-    "titulo": "Estudar Node.js",
-    "descricao": "Estudar Node.js para desenvolver aplicações web",
+    "titulo": "Teste",
+    "descricao": "Teste",
     "categoriaId": "6d091456-5a2f-4b5a-98fc-f1a3b50a627d"
 }
 
 ### Alterar tarefa
-PUT http://localhost:5000/api/tarefas/alterar/e5d4a7b9-1f9e-4c4a-ae3b-5b7c1a9d2e3f
+PUT http://localhost:5000/api/tarefas/alterar/71406aa5-18cb-45d2-a0f5-4732d6ff7a84
 Content-Type: application/json
 
 {
-    "titulo": "Passeio no Parque",
-    "descricao" : "Dar um passeio relaxante no parque",
+    "titulo": "Teste 2",
+    "descricao" : "Testando",
     "categoriaId": "39be53a2-fc09-4b6a-bafa-18a6a23c8f6e"
 }
 

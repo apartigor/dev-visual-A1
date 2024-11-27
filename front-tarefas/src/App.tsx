@@ -6,8 +6,8 @@ import TarefaAlterar from "./components/pages/TarefaAlterar";
 
 function App() {
   return (
-    <BrowserRouter>
-      <div id="app">
+    <div id="app">
+      <BrowserRouter>
         <nav>
           <ul>
             <li>
@@ -30,12 +30,12 @@ function App() {
             path="/pages/tarefa/cadastrar" element={<TarefaCadastro />}
           />
           <Route
-            path="/pages/tarefa/alterar/:id"
+            path="/pages/tarefa/alterar/:tarefaId"
             element={<TarefaAlterar />}
           />
         </Routes>
-      </div>
-    </BrowserRouter>
+      </BrowserRouter>
+    </div>
   );
 }
 
