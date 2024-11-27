@@ -10,3 +10,16 @@ Content-Type: application/json
     "descricao": "Estudar Node.js para desenvolver aplicações web",
     "categoriaId": "6d091456-5a2f-4b5a-98fc-f1a3b50a627d"
 }
+
+### Alterar tarefa
+PUT http://localhost:5000/api/tarefas/alterar/e5d4a7b9-1f9e-4c4a-ae3b-5b7c1a9d2e3f
+Content-Type: application/json
+
+{
+    "titulo": "Passeio no Parque",
+    "descricao" : "Dar um passeio relaxante no parque",
+    "categoriaId": "39be53a2-fc09-4b6a-bafa-18a6a23c8f6e"
+}
+
+### Buscar Tarefa
+GET http://localhost:5000/api/tarefas/buscar/e5d4a7b9-1f9e-4c4a-ae3b-5b7c1a9d2e3f
